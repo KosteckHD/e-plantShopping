@@ -162,15 +162,25 @@ body {
 }
 .cart{
     color: white;
-    display: flex;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
 }
 .cart_quantity_count{
-    margin-top: 16px;
-    /* background-color: red; */
-    margin-left: 27px;
     position: absolute;
-    font-size: 29px;
-
+    top: 6px;
+    right: 6px;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background-color: #ffffff;
+    color: #2f8744;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .plantname_heading{
    display: flex;
