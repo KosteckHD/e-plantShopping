@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Manrope:wght@400;500;700&display=swap');
+
+.app-container {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.landing-page {
+  position: relative;
+  min-height: 100svh;
+  isolation: isolate;
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(108deg, rgba(15, 40, 24, 0.88) 0%, rgba(32, 74, 46, 0.78) 45%, rgba(238, 247, 238, 0.2) 100%),
+    radial-gradient(circle at 16% 18%, rgba(108, 177, 118, 0.35), rgba(108, 177, 118, 0) 46%),
+    url('https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  animation: hero-pan 18s ease-in-out infinite alternate;
+}
+
+@keyframes hero-pan {
+  from {
+    transform: scale(1.02) translateX(0);
+  }
+
+  to {
+    transform: scale(1.08) translateX(-2%);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, 100%);
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: minmax(280px, 520px) minmax(300px, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 4rem);
+}
+
+.landing_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: clamp(1.1rem, 2.4vw, 2rem);
+  border-radius: 24px;
+  text-align: left;
+  background-color: rgba(11, 31, 20, 0.4);
+  border: 1px solid rgba(174, 226, 186, 0.28);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 16px 34px rgba(8, 21, 12, 0.3);
+  animation: fade-up 700ms ease both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landing_content h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2rem, 4.8vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: 0.3px;
+  color: #f5faef;
+  margin: 0;
+  max-width: 14ch;
+  text-wrap: balance;
+}
+
+.landing_content p {
+  color: #e6f2e0;
+  font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 30ch;
+}
+
+.divider {
+  width: 74px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #67c47e, #c6f58f);
+  margin: 0.2rem 0;
+}
+
+.get-started-button {
+  margin-top: 0.75rem;
+  padding: 0.9rem 1.6rem;
+  font-family: 'Manrope', 'Segoe UI', Tahoma, sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4caf50, #2f8744);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(25, 64, 36, 0.36);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.get-started-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 22px rgba(25, 64, 36, 0.42);
+  filter: brightness(1.05);
+}
+
+.aboutus_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: fade-up 900ms 140ms ease both;
+}
+
+.product-list-container {
+  position: absolute;
+  top: 100svh;
+  left: 0;
+  width: 100%;
+  min-height: 100svh;
+  max-height: 100svh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: rgba(246, 250, 244, 0.97);
+  backdrop-filter: blur(4px);
+  transition: top 0.5s ease;
+  z-index: 2;
+}
+
+.product-list-container.visible {
+  top: 0;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-content: center;
+    gap: 1rem;
+    padding-block: clamp(1.25rem, 6vw, 2.4rem);
+  }
+
+  .landing_content {
+    align-items: center;
+    text-align: center;
+    width: min(100%, 680px);
+  }
+
+  .landing_content h1,
+  .landing_content p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    gap: 0.8rem;
+    padding-inline: 0.9rem;
+  }
+
+  .landing_content {
+    border-radius: 18px;
+    padding: 1rem;
+  }
+
+  .get-started-button {
+    width: 100%;
+  }
+}
